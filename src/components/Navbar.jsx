@@ -31,8 +31,16 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleNavigation = (to) => {
+    navigate(to);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   const handleAboutClick = () => {
-    navigate("/about");
+    handleNavigation("/about");
   };
 
   return (
@@ -44,9 +52,12 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link to="/" className="flex-shrink-0">
+          <div 
+            onClick={() => handleNavigation("/")} 
+            className="flex-shrink-0 cursor-pointer"
+          >
             <img src={logo} alt="Logo" className="h-20 w-32" />
-          </Link>
+          </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
@@ -116,43 +127,43 @@ const Navbar = () => {
                   {/* About Dropdown menu */}
                   {aboutDropdownOpen && (
                     <div className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
-                      <Link
-                        to="/why-us"
-                        className="block px-4 py-2 text-sm text-primary hover:bg-gray-50 hover:text-accent"
+                      <div
+                        onClick={() => handleNavigation("/why-us")}
+                        className="block px-4 py-2 text-sm text-primary hover:bg-gray-50 hover:text-accent cursor-pointer"
                       >
                         Why Us
-                      </Link>
-                      <Link
-                        to="/our-company"
-                        className="block px-4 py-2 text-sm text-primary hover:bg-gray-50 hover:text-accent"
+                      </div>
+                      <div
+                        onClick={() => handleNavigation("/our-company")}
+                        className="block px-4 py-2 text-sm text-primary hover:bg-gray-50 hover:text-accent cursor-pointer"
                       >
                         Our Company
-                      </Link>
-                      <Link
-                        to="/industries"
-                        className="block px-4 py-2 text-sm text-primary hover:bg-gray-50 hover:text-accent"
+                      </div>
+                      <div
+                        onClick={() => handleNavigation("/industries")}
+                        className="block px-4 py-2 text-sm text-primary hover:bg-gray-50 hover:text-accent cursor-pointer"
                       >
                         Industries
-                      </Link>
-                      <Link
-                        to="/our-client"
-                        className="block px-4 py-2 text-sm text-primary hover:bg-gray-50 hover:text-accent"
+                      </div>
+                      <div
+                        onClick={() => handleNavigation("/our-client")}
+                        className="block px-4 py-2 text-sm text-primary hover:bg-gray-50 hover:text-accent cursor-pointer"
                       >
                         Testimonial
-                      </Link>
+                      </div>
                     </div>
                   )}
                 </div>
               ) : (
-                <Link
+                <div
                   key={item.name}
-                  to={item.to}
-                  className={`text-base font-medium ${
+                  onClick={() => handleNavigation(item.to)}
+                  className={`text-base font-medium cursor-pointer ${
                     location.pathname === item.to ? "text-accent" : item.color
                   } hover:text-accent`}
                 >
                   {item.name}
-                </Link>
+                </div>
               )
             )}
           </div>
@@ -163,44 +174,58 @@ const Navbar = () => {
       <div className={`${isOpen ? "block" : "hidden"} md:hidden bg-white pb-4`}>
         <div className="px-2 pt-2 pb-3 space-y-1">
           {navItems.map((item) => (
-            <Link
+            <div
               key={item.name}
-              to={item.to}
-              className={`block px-3 py-2 text-base font-medium ${
+              onClick={() => {
+                handleNavigation(item.to);
+                setIsOpen(false);
+              }}
+              className={`block px-3 py-2 text-base font-medium cursor-pointer ${
                 location.pathname === item.to ? "text-accent" : "text-primary"
               } hover:text-accent hover:bg-gray-50`}
-              onClick={() => setIsOpen(false)}
             >
               {item.name}
-            </Link>
+            </div>
           ))}
           {/* Mobile About dropdown items */}
           {location.pathname.startsWith("/about") && (
             <>
-              <Link
-                to="/why-us"
-                className="block px-3 py-2 text-base font-medium text-primary hover:text-accent hover:bg-gray-50 pl-6"
+              <div
+                onClick={() => {
+                  handleNavigation("/why-us");
+                  setIsOpen(false);
+                }}
+                className="block px-3 py-2 text-base font-medium text-primary hover:text-accent hover:bg-gray-50 pl-6 cursor-pointer"
               >
                 Why Us
-              </Link>
-              <Link
-                to="/our-company"
-                className="block px-3 py-2 text-base font-medium text-primary hover:text-accent hover:bg-gray-50 pl-6"
+              </div>
+              <div
+                onClick={() => {
+                  handleNavigation("/our-company");
+                  setIsOpen(false);
+                }}
+                className="block px-3 py-2 text-base font-medium text-primary hover:text-accent hover:bg-gray-50 pl-6 cursor-pointer"
               >
                 Our Company
-              </Link>
-              <Link
-                to="/industries"
-                className="block px-3 py-2 text-base font-medium text-primary hover:text-accent hover:bg-gray-50 pl-6"
+              </div>
+              <div
+                onClick={() => {
+                  handleNavigation("/industries");
+                  setIsOpen(false);
+                }}
+                className="block px-3 py-2 text-base font-medium text-primary hover:text-accent hover:bg-gray-50 pl-6 cursor-pointer"
               >
                 Industries
-              </Link>
-              <Link
-                to="/our-client"
-                className="block px-3 py-2 text-base font-medium text-primary hover:text-accent hover:bg-gray-50 pl-6"
+              </div>
+              <div
+                onClick={() => {
+                  handleNavigation("/our-client");
+                  setIsOpen(false);
+                }}
+                className="block px-3 py-2 text-base font-medium text-primary hover:text-accent hover:bg-gray-50 pl-6 cursor-pointer"
               >
                 Our Client
-              </Link>
+              </div>
             </>
           )}
         </div>

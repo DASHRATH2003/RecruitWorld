@@ -5,32 +5,32 @@ const services = [
   {
     title: 'Staffing Services',
     description: 'Premium quality staffing solutions, carefully handpicked to meet your exact requirements. Known for its efficiency and reliability in workforce management.',
-    image: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=500&h=300&fit=crop'
+    image: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=500&h=300&fit=contain'
   },
   {
     title: 'Recruitment Services',
     description: 'High-grade recruitment services sourced from the best talent pools. Features a robust track and quality monitoring system to ensure optimal placement success.',
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=500&h=300&fit=crop'
+    image: 'https://img.freepik.com/free-photo/business-situation-job-interview-concept-job-seeker-present-resume-managers_1421-78.jpg?semt=ais_hybrid&w=740'
   },
   {
     title: 'Leadership Hiring',
     description: 'Premium leadership talent from top-tier companies. Known for exceptional quality and high success rate. A powerful solution for executive positions.',
-    image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=500&h=300&fit=crop'
+    image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=500&h=300&fit=contain'
   },
   {
     title: 'IT Recruitment',
     description: 'One of the specialized tech talent solutions. Prized for its intense rigor and diverse tech stack. Adds a powerful dimension to your technology team.',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&h=300&fit=crop'
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE05zJNedPe0oFpHvaM4s-YA7OyIY93CyBeihO83Oi4a2ONAYRsWAAy5huAqHXuWU-r2g&usqp=CAU'
   },
   {
     title: 'HR Consulting',
     description: 'Fresh and crisp HR solutions with vibrant ideas. Perfect for scaling and building organizations. Also natural fit for startups and growing companies.',
-    image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=500&h=300&fit=crop'
+    image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=500&h=300&fit=contain'
   },
   {
     title: 'Payroll Services',
     description: 'Premium quality payroll services from Indian firms. Known for balanced cost and risk factor. Essential for modern business operations.',
-    image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=500&h=300&fit=crop'
+    image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=500&h=300&fit=contain'
   },
 
   {
@@ -41,7 +41,7 @@ const services = [
   {
     title: 'Recruitment Services',
     description: 'High-grade recruitment services sourced from the best talent pools. Features a robust track and quality monitoring system to ensure optimal placement success.',
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=500&h=300&fit=crop'
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE05zJNedPe0oFpHvaM4s-YA7OyIY93CyBeihO83Oi4a2ONAYRsWAAy5huAqHXuWU-r2g&usqp=CAU'
   },
   {
     title: 'Leadership Hiring',
@@ -88,11 +88,11 @@ const Services = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
             >
-              <div className="aspect-w-16 aspect-h-9 relative">
+              <div className="aspect-w-16 aspect-h-9 bg-white p-4">
                 <img
                   src={service.image}
                   alt={service.title}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-48 object-contain"
                 />
               </div>
               <div className="p-6">
