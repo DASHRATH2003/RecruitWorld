@@ -5,9 +5,11 @@ const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
 const api = axios.create({
   baseURL: API_URL,
   headers: {
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'Accept': 'application/json'
   },
-  timeout: 10000
+  timeout: 30000, // Increased timeout for production server
+  withCredentials: false // Explicitly set for CORS
 });
 
 // Request interceptor
@@ -17,6 +19,11 @@ api.interceptors.request.use(
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
+    // Add timestamp to prevent caching
+    config.params = {
+      ...config.params,
+      _t: Date.now()
+    };
     return config;
   },
   error => Promise.reject(error)
@@ -27,13 +34,23 @@ api.interceptors.response.use(
   response => response,
   error => {
     if (error.code === 'ECONNABORTED') {
-      error.message = 'Request timeout - please try again';
+      error.message = 'Request timeout - the server might be experiencing high load, please try again';
     } else if (error.response) {
       // Server responded with error status
+      if (error.response.status === 401) {
+        // Clear auth data on 401 Unauthorized
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        localStorage.removeItem('isAuthenticated');
+        // Redirect to login if not already there
+        if (!window.location.pathname.includes('/login')) {
+          window.location.href = '/login';
+        }
+      }
       error.message = error.response.data?.message || 'Request failed';
     } else if (error.request) {
       // No response received
-      error.message = 'No response from server - check your connection';
+      error.message = 'Unable to reach the server - please check your connection and try again';
     }
     return Promise.reject(error);
   }
