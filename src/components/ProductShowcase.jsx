@@ -110,7 +110,7 @@ const ProductShowcase = () => {
                 <img
                   src={product.image}
                   alt={product.title}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-72 object-contain"
                 />
               </div>
               <div className="p-6">

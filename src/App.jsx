@@ -1,49 +1,77 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import TopBar from './components/TopBar';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './components/Services';
 import Clients from './pages/Clients';
 import WhyUs from './pages/WhyUs';
-import './App.css';
 import Ourcompany from './pages/Ourcompany';
 import Ourclient from './pages/Ourclient';
 import Blogs from './pages/Blogs';
 import Industry from './pages/Industry';
 import Internship from './pages/Internship';
 import Contact from './pages/Contact';
+import Login from './components/auth/Login';
+import Register from './components/auth/Register';
+import Dashboard from './components/admin/Dashboard';
+import ProtectedRoute from './components/auth/ProtectedRoute';
+import Jobs from './pages/Jobs';
+import JobDetails from './pages/JobDetails';
+import Layout from './components/Layout';
 
-// Placeholder components for other routes
-const PostJob = () => <div className="p-8 text-center">Post Job Page Coming Soon</div>;
-const Jobs = () => <div className="p-8 text-center">Jobs Page Coming Soon</div>;
+import './App.css';
 
 const App = () => {
   return (
     <Router>
       <div className="flex flex-col min-h-screen">
-        <TopBar />
-        <Navbar />
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/post-job" element={<PostJob />} />
-            <Route path="/clients" element={<Clients />} />
-            <Route path="/internship" element={<Internship />} />
-            <Route path="/jobs" element={<Jobs />} />
-            <Route path="/industries" element={<Industry />} />
-            <Route path="/blogs" element={<Blogs />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/why-us" element={<WhyUs />} />
-            <Route path="/our-company" element={<Ourcompany />} />
-            <Route path="/our-client" element={<Ourclient />} />
-          </Routes>
-        </main>
-        <Footer />
+        <Routes>
+          {/* Auth Routes - No Layout */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          
+          {/* Dashboard Routes - Protected & No Layout */}
+          <Route
+            path="/admin/dashboard/*"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/dashboard/*"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* Public Routes - With Layout */}
+          <Route path="/" element={<Layout><Home /></Layout>} />
+          <Route path="/about" element={<Layout><About /></Layout>} />
+          <Route path="/services" element={<Layout><Services /></Layout>} />
+          <Route path="/post-job" element={<Layout><Login /></Layout>} />
+          <Route path="/clients" element={<Layout><Clients /></Layout>} />
+          <Route path="/internship" element={<Layout><Internship /></Layout>} />
+          <Route path="/jobs" element={<Layout><Jobs /></Layout>} />
+          <Route path="/jobs/:id" element={<Layout><JobDetails /></Layout>} />
+          <Route path="/industries" element={<Layout><Industry /></Layout>} />
+          <Route path="/blogs" element={<Layout><Blogs /></Layout>} />
+          <Route path="/contact" element={<Layout><Contact /></Layout>} />
+          <Route path="/why-us" element={<Layout><WhyUs /></Layout>} />
+          <Route path="/our-company" element={<Layout><Ourcompany /></Layout>} />
+          <Route path="/our-client" element={<Layout><Ourclient /></Layout>} />
+
+          {/* Catch-all route - redirect to home */}
+          <Route path="*" element={<Layout><Home /></Layout>} />
+        </Routes>
       </div>
     </Router>
   );
