@@ -14,13 +14,6 @@ const offices = [
     phone: "+91 22 9876 5432",
     email: "mumbai@recruitworld.com",
     image: "https://img.freepik.com/free-photo/mumbai-skyline-skyscrapers-construction_469504-21.jpg?w=740&t=st=1709727425~exp=1709728025~hmac=2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b"
-  },
-  {
-    city: "Delhi NCR",
-    address: "789 Corporate Tower, Cyber City, Gurgaon",
-    phone: "+91 124 8765 4321",
-    email: "delhi@recruitworld.com",
-    image: "https://img.freepik.com/free-photo/lotus-temple-new-delhi-india_1232-4451.jpg?w=740&t=st=1709727460~exp=1709728060~hmac=4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c"
   }
 ];
 

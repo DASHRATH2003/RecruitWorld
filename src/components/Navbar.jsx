@@ -4,16 +4,62 @@ import logo from "../assets/newlogodark.png";
 import { Menu } from "@headlessui/react";
 
 const navItems = [
-  { name: "Home", to: "/", color: "text-accent" },
-  { name: "About", to: "/about", color: "text-primary", hasDropdown: true },
-  { name: "Our Services", to: "/services", color: "text-primary" },
-  { name: "Free job post", to: "/post-job", color: "text-primary" },
-  { name: "Our Clients", to: "/clients", color: "text-primary" },
-  { name: "Internship", to: "/internship", color: "text-primary" },
-  { name: "Jobs", to: "/jobs", color: "text-primary" },
-  { name: "Industries", to: "/industries", color: "text-primary" },
-  { name: "Blogs", to: "/blogs", color: "text-primary" },
-  { name: "Contact", to: "/contact", color: "text-primary" },
+  { name: "Home", to: "/", color: "text-red-500", fontWeight: "font-semibold" },
+  {
+    name: "About",
+    to: "/about",
+    color: "text-blue-900",
+    hasDropdown: true,
+    fontWeight: "font-semibold",
+  },
+  {
+    name: "Our Services",
+    to: "/services",
+    color: "text-blue-900",
+    fontWeight: "font-semibold",
+  },
+  {
+    name: "Free job post",
+    to: "/post-job",
+    color: "text-blue-900",
+    fontWeight: "font-semibold",
+  },
+  {
+    name: "Our Clients",
+    to: "/clients",
+    color: "text-blue-900",
+    fontWeight: "font-semibold",
+  },
+  {
+    name: "Internship",
+    to: "/internship",
+    color: "text-blue-900",
+    fontWeight: "font-semibold",
+  },
+  {
+    name: "Jobs",
+    to: "/jobs",
+    color: "text-blue-900",
+    fontWeight: "font-semibold",
+  },
+  {
+    name: "Industries",
+    to: "/industries",
+    color: "text-blue-900",
+    fontWeight: "font-semibold",
+  },
+  {
+    name: "Blogs",
+    to: "/blogs",
+    color: "text-blue-900",
+    fontWeight: "font-semibold",
+  },
+  {
+    name: "Contact",
+    to: "/contact",
+    color: "text-blue-900",
+    fontWeight: "font-semibold",
+  },
 ];
 
 const Navbar = () => {
@@ -35,7 +81,7 @@ const Navbar = () => {
     navigate(to);
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
   };
 
@@ -52,18 +98,18 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <div 
-            onClick={() => handleNavigation("/")} 
+          <div
+            onClick={() => handleNavigation("/")}
             className="flex-shrink-0 cursor-pointer"
           >
-            <img src={logo} alt="Logo" className="h-20 w-32" />
+            <img src={logo} alt="Logo" className="h-28 w-48 ml-[-50px]" />
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-primary focus:outline-none"
+              className="inline-flex items-center justify-center p-2 rounded-md text-red-500 hover:text-primary focus:outline-none"
             >
               <svg
                 className="h-6 w-6"
@@ -91,22 +137,22 @@ const Navbar = () => {
           </div>
 
           {/* Desktop menu */}
-          <div className="hidden md:flex md:items-center md:space-x-6">
+          <div className="hidden md:flex md:items-center md:space-x-8">
             {navItems.map((item) =>
               item.name === "About" ? (
                 <div
                   key={item.name}
-                  className="relative"
+                  className="relative group"
                   onMouseEnter={() => setAboutDropdownOpen(true)}
                   onMouseLeave={() => setAboutDropdownOpen(false)}
                 >
                   <button
                     onClick={handleAboutClick}
-                    className={`text-base font-medium inline-flex items-center ${
+                    className={`text-xl inline-flex items-center font-semibold ${
                       location.pathname.startsWith("/about")
-                        ? "text-accent"
+                        ? "text-blue-900"
                         : item.color
-                    } hover:text-accent`}
+                    } hover:text-red-500 transition-colors duration-200`}
                   >
                     {item.name}
                     <svg
@@ -124,30 +170,27 @@ const Navbar = () => {
                     </svg>
                   </button>
 
+                  {/* Invisible bridge to prevent hover gap */}
+                  <div className="absolute -bottom-2 left-0 right-0 h-2 bg-transparent"></div>
+
                   {/* About Dropdown menu */}
                   {aboutDropdownOpen && (
-                    <div className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
+                    <div className="absolute left-0 top-full w-48 bg-white rounded-md shadow-lg py-1 z-50 border border-gray-100">
                       <div
                         onClick={() => handleNavigation("/why-us")}
-                        className="block px-4 py-2 text-sm text-primary hover:bg-gray-50 hover:text-accent cursor-pointer"
+                        className="block px-4 py-2 text-xl font-semibold text-blue-900 hover:bg-gray-50 hover:text-red-500  cursor-pointer transition-colors duration-150"
                       >
                         Why Us
                       </div>
                       <div
                         onClick={() => handleNavigation("/our-company")}
-                        className="block px-4 py-2 text-sm text-primary hover:bg-gray-50 hover:text-accent cursor-pointer"
+                        className="block px-4 py-2 text-xl font-semibold text-blue-900 hover:bg-gray-50 hover:text-red-500 cursor-pointer transition-colors duration-150"
                       >
                         Our Company
                       </div>
                       <div
-                        onClick={() => handleNavigation("/industries")}
-                        className="block px-4 py-2 text-sm text-primary hover:bg-gray-50 hover:text-accent cursor-pointer"
-                      >
-                        Industries
-                      </div>
-                      <div
                         onClick={() => handleNavigation("/our-client")}
-                        className="block px-4 py-2 text-sm text-primary hover:bg-gray-50 hover:text-accent cursor-pointer"
+                        className="block px-4 py-2 text-xl font-semibold text-blue-900 hover:bg-gray-50 hover:text-red-500 cursor-pointer transition-colors duration-150"
                       >
                         Testimonial
                       </div>
@@ -158,9 +201,15 @@ const Navbar = () => {
                 <div
                   key={item.name}
                   onClick={() => handleNavigation(item.to)}
-                  className={`text-base font-medium cursor-pointer ${
-                    location.pathname === item.to ? "text-accent" : item.color
-                  } hover:text-accent`}
+                  className={`text-xl cursor-pointer ${
+                    location.pathname === item.to
+                      ? `${
+                          item.name === "Home"
+                            ? "text-red-500 text-2xl"
+                            : "text-blue-900"
+                        } font-semibold`
+                      : `${item.color} font-semibold`
+                  } hover:text-red-500 transition-colors duration-200`}
                 >
                   {item.name}
                 </div>
@@ -180,9 +229,17 @@ const Navbar = () => {
                 handleNavigation(item.to);
                 setIsOpen(false);
               }}
-              className={`block px-3 py-2 text-base font-medium cursor-pointer ${
-                location.pathname === item.to ? "text-accent" : "text-primary"
-              } hover:text-accent hover:bg-gray-50`}
+              className={`block px-3 py-2 text-xl ${
+                item.fontWeight
+              } cursor-pointer ${
+                location.pathname === item.to
+                  ? `${
+                      item.name === "Home"
+                        ? "text-red-500 text-2xl"
+                        : "text-blue-900"
+                    }`
+                  : item.color
+              } hover:text-blue-700 hover:bg-gray-50 transition-colors duration-200`}
             >
               {item.name}
             </div>
@@ -195,7 +252,7 @@ const Navbar = () => {
                   handleNavigation("/why-us");
                   setIsOpen(false);
                 }}
-                className="block px-3 py-2 text-base font-medium text-primary hover:text-accent hover:bg-gray-50 pl-6 cursor-pointer"
+                className="block px-3 py-2 text-xl font-bold text-blue-900 hover:text-blue-700 hover:bg-gray-50 pl-6 cursor-pointer transition-colors duration-200"
               >
                 Why Us
               </div>
@@ -204,25 +261,16 @@ const Navbar = () => {
                   handleNavigation("/our-company");
                   setIsOpen(false);
                 }}
-                className="block px-3 py-2 text-base font-medium text-primary hover:text-accent hover:bg-gray-50 pl-6 cursor-pointer"
+                className="block px-3 py-2 text-xl font-bold text-blue-900 hover:text-blue-700 hover:bg-gray-50 pl-6 cursor-pointer transition-colors duration-200"
               >
                 Our Company
-              </div>
-              <div
-                onClick={() => {
-                  handleNavigation("/industries");
-                  setIsOpen(false);
-                }}
-                className="block px-3 py-2 text-base font-medium text-primary hover:text-accent hover:bg-gray-50 pl-6 cursor-pointer"
-              >
-                Industries
               </div>
               <div
                 onClick={() => {
                   handleNavigation("/our-client");
                   setIsOpen(false);
                 }}
-                className="block px-3 py-2 text-base font-medium text-primary hover:text-accent hover:bg-gray-50 pl-6 cursor-pointer"
+                className="block px-3 py-2 text-xl font-bold text-blue-900 hover:text-blue-700 hover:bg-gray-50 pl-6 cursor-pointer transition-colors duration-200"
               >
                 Our Client
               </div>

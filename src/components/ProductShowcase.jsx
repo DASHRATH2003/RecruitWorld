@@ -110,7 +110,7 @@ const ProductShowcase = () => {
                 <img
                   src={product.image}
                   alt={product.title}
-                  className="w-full h-72 object-contain"
+                  className="w-full h-48 object-cover border border-gray-400 rounded"
                 />
               </div>
               <div className="p-6">
@@ -162,7 +162,8 @@ const ProductShowcase = () => {
               Since 2018
             </p>
             <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-4">
-              Empowering businesses with expert manpower and Recruit World solutions
+              Empowering businesses with expert manpower and Recruit World
+              solutions
             </h2>
           </div>
 
@@ -344,55 +345,57 @@ const ProductShowcase = () => {
       </section>
 
       <section className="bg-white py-16 px-4">
-  <div className="text-center mb-12">
-    <p className="text-red-600 font-semibold text-sm">
-      Latest from Recruit World Consultancy Services
-    </p>
-    <h2 className="text-4xl font-bold text-blue-900">
-      Subscribe for latest updates
-    </h2>
-    <p className="mt-2 text-gray-600">
-      Insights, tips, and trends from the recruitment industry.
-    </p>
-  </div>
-
-  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-    {[
-      {
-        img: Blog1,
-        title: "The Power of Teamwork in Recruitment",
-        date: "JAN 18 2024",
-      },
-      {
-        img: Blog2,
-        title: "Navigating the Interview Process Successfully",
-        date: "JAN 18 2024",
-      },
-      {
-        img: Blog3,
-        title: "The Importance of Soft Skills in Today's Workplace",
-        date: "JAN 18 2024",
-      },
-    ].map((blog, index) => (
-      <div
-        key={index}
-        className="bg-gray-50 rounded-lg shadow hover:shadow-lg transition"
-      >
-        <img
-          src={blog.img}
-          alt={`Blog ${index + 1}`}
-          className="w-full h-48 object-cover rounded-t-lg"
-        />
-        <div className="p-4">
-          <p className="text-red-500 text-xs font-semibold mb-1">
-            {blog.date}
+        <div className="text-center mb-12">
+          <p className="text-red-600 font-semibold text-sm">
+            Latest from Recruit World Consultancy Services
           </p>
-          <h3 className="text-sm font-bold text-blue-900">{blog.title}</h3>
+          <h2 className="text-4xl font-bold text-blue-900">
+            Subscribe for latest updates
+          </h2>
+          <p className="mt-2 text-gray-600">
+            Insights, tips, and trends from the recruitment industry.
+          </p>
         </div>
-      </div>
-    ))}
-  </div>
-</section>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {[
+            {
+              img: Blog1,
+              title: "The Power of Teamwork in Recruitment",
+              date: "JAN 18 2024",
+            },
+            {
+              img: Blog2,
+              title: "Navigating the Interview Process Successfully",
+              date: "JAN 18 2024",
+            },
+            {
+              img: Blog3,
+              title: "The Importance of Soft Skills in Today's Workplace",
+              date: "JAN 18 2024",
+            },
+          ].map((blog, index) => (
+            <div
+              key={index}
+              className="bg-gray-50 rounded-lg shadow hover:shadow-lg transition"
+            >
+              <img
+                src={blog.img}
+                alt={`Blog ${index + 1}`}
+                className="w-full h-48 object-cover rounded-t-lg"
+              />
+              <div className="p-4">
+                <p className="text-red-500 text-xs font-semibold mb-1">
+                  {blog.date}
+                </p>
+                <h3 className="text-sm font-bold text-blue-900">
+                  {blog.title}
+                </h3>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 };

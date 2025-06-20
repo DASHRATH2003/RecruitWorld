@@ -20,7 +20,7 @@ const Footer = () => {
 
           {/* Logo & Description */}
           <div className="md:col-span-1">
-          <img src={logo} alt="logo" className="h-24 w-36 mb-4 -mt-4" />
+          <img src={logo} alt="logo" className="h-28 w-42 mb-4 -mt-4" />
             <p className="text-gray-200 mb-4">
               We are the leading human resources consulting firm dedicated to providing comprehensive Recruit World solutions for businesses in India.
             </p>
