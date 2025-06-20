@@ -96,7 +96,7 @@ const Services = () => {
         {/* Heading */}
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-[#0A2472]">Our Services</h2>
-          <p className="mt-2 text-gray-600 text-base max-w-2xl mx-auto">
+          <p className="text-[#787f95] text-lg leading-relaxed mb-8 font-medium">
             Explore our range of professional services crafted to empower your
             workforce and drive business success.
           </p>
@@ -106,33 +106,43 @@ const Services = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+            key={service.title}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: index * 0.08 }}
+            className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300"
+          >
+            <motion.div 
+              className="aspect-w-16 aspect-h-9 bg-white p-4 overflow-hidden"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.25 }}
             >
-              <div className="aspect-w-16 aspect-h-9 bg-white p-4">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-48 object-cover border border-gray-400 rounded"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-center text-lg font-semibold text-[#0A2472] mb-3">
-                  {service.title}
-                </h3>
-                <p className="text-sm text-gray-600 text-center mb-4 h-24">
-                  {service.description}
-                </p>
-                <div className="text-center">
-                  <button className="bg-[#0A2472] text-white px-6 py-2 rounded text-sm font-medium hover:bg-[#083072] transition-colors">
-                    SEND ENQUIRY
-                  </button>
-                </div>
-              </div>
+              <img
+                src={service.image}
+                alt={service.title}
+                className="w-full h-48 object-cover border border-gray-300 rounded transition-transform duration-300 ease-in-out"
+              />
             </motion.div>
+          
+            <div className="p-5">
+              <h3 className="text-center text-lg font-semibold text-[#0A2472] mb-2">
+                {service.title}
+              </h3><p className="text-sm text-gray-700 text-center mb-4 h-24 font-medium">
+                {service.description}
+              </p>
+              
+              <div className="text-center">
+                <motion.button 
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-[#0A2472] text-white px-6 py-2 rounded text-sm font-medium hover:bg-[#083072] transition duration-200"
+                >
+                  SEND ENQUIRY
+                </motion.button>
+              </div>
+            </div>
+          </motion.div>
+          
           ))}
         </div>
       </div>

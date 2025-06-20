@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import Blog1 from '../assets/Blog1.jpeg';
 import Blog2 from '../assets/Blog2.jpg';
 import Blog3 from '../assets/Blog3.jpg';
@@ -62,81 +63,114 @@ const Blogs = () => {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <div className="bg-primary text-white text-center py-12">
+      <motion.div 
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="bg-primary text-white text-center py-12"
+      >
         <h1 className="text-4xl font-bold mb-4">Recruit World Insights & Updates</h1>
         <p className="text-lg max-w-2xl mx-auto px-4">
           Stay informed with the latest trends, insights, and best practices in HR
         </p>
-      </div>
+      </motion.div>
 
       {/* Featured Post */}
       <div className="max-w-7xl mx-auto px-4 py-16">
-        <div className="grid md:grid-cols-2 gap-8 items-center mb-16">
-          <div className="relative">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="grid md:grid-cols-2 gap-8 items-center mb-16"
+        >
+          <motion.div 
+            className="relative overflow-hidden"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
+          >
             <img
               src={Blog7}
               alt="Featured Blog"
-              className="rounded-lg shadow-lg w-full h-[400px] object-cover"
+              className="rounded-lg shadow-lg w-full h-[400px] object-cover transition-transform duration-300"
             />
             <div className="absolute top-4 left-4">
               <span className="bg-accent text-white px-4 py-1 rounded-full text-sm">
                 Featured
               </span>
             </div>
-          </div>
+          </motion.div>
           <div>
-            <span className="text-accent font-medium">Recruit World Strategy</span>
-            <h2 className="text-3xl font-bold text-primary mt-2 mb-4">
+            <motion.h2 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-3xl font-bold text-primary mb-4"
+            >
               Strategic Recruit World Planning for 2024 and Beyond
-            </h2>
-            <p className="text-gray-600 mb-6">
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="text-sm text-gray-700 text-center mb-4 h-24 font-medium"
+            >
               In this comprehensive guide, we explore the key trends shaping Recruit World
               strategy in 2024 and provide actionable insights for Recruit World professionals
               to prepare their organizations for the future of work.
-            </p>
-            <div className="flex items-center text-sm text-gray-500 mb-6">
-              <span>June 18, 2024</span>
-              <span className="mx-2">•</span>
-              <span>8 min read</span>
-            </div>
-            <button className="bg-accent hover:bg-accent-dark text-white font-semibold py-2 px-6 rounded transition-colors">
+            </motion.p>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-accent text-white px-6 py-2 rounded-full"
+            >
               Read More
-            </button>
+            </motion.button>
           </div>
-        </div>
+        </motion.div>
 
         {/* Blog Grid */}
-        <div>
-          <h2 className="text-3xl font-bold text-primary mb-8">Latest Posts</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogs.map((blog, index) => (
-              <div key={index} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          {blogs.map((blog, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-lg shadow-lg overflow-hidden"
+            >
+              <motion.div 
+                className="h-48 overflow-hidden"
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.3 }}
+              >
                 <img
                   src={blog.image}
                   alt={blog.title}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-full object-cover transition-transform duration-300"
                 />
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-accent text-sm font-medium">
-                      {blog.category}
-                    </span>
-                    <span className="text-gray-500 text-sm">{blog.readTime}</span>
-                  </div>
-                  <h3 className="text-xl font-semibold text-primary mb-2">
-                    {blog.title}
-                  </h3>
-                  <p className="text-gray-600 mb-4">{blog.excerpt}</p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-gray-500 text-sm">{blog.date}</span>
-                    <button className="text-accent hover:text-accent-dark font-medium transition-colors">
-                      Read More →
-                    </button>
-                  </div>
+              </motion.div>
+              <div className="p-6">
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-accent text-sm">{blog.category}</span>
+                  <span className="text-gray-500 text-sm">{blog.date}</span>
+                </div>
+                <h3 className="font-bold text-lg mb-2 text-primary">{blog.title}</h3>
+                <p className="text-sm text-gray-700 text-center mb-4 h-24 font-medium">{blog.excerpt}</p>
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-500 text-sm">{blog.readTime}</span>
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="text-accent font-medium hover:text-primary"
+                  >
+                    Read More →
+                  </motion.button>
                 </div>
               </div>
-            ))}
-          </div>
+            </motion.div>
+          ))}
         </div>
 
         {/* Newsletter Subscription */}
@@ -144,7 +178,7 @@ const Blogs = () => {
           <h2 className="text-2xl font-bold text-primary mb-4">
             Subscribe to Our Newsletter
           </h2>
-          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+          <p className="text-sm text-gray-700 text-center mb-4 h-24 font-medium">
             Get the latest Recruit World insights, trends, and best practices delivered
             straight to your inbox.
           </p>

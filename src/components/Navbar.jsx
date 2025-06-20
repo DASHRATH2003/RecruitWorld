@@ -102,7 +102,7 @@ const Navbar = () => {
             onClick={() => handleNavigation("/")}
             className="flex-shrink-0 cursor-pointer"
           >
-            <img src={logo} alt="Logo" className="h-28 w-48 ml-[-50px]" />
+            <img src={logo} alt="Logo" className="h-28 w-46 ml-[-20px]" />
           </div>
 
           {/* Mobile menu button */}
@@ -137,7 +137,7 @@ const Navbar = () => {
           </div>
 
           {/* Desktop menu */}
-          <div className="hidden md:flex md:items-center md:space-x-8">
+          <div className="hidden md:flex md:items-center md:space-x-6">
             {navItems.map((item) =>
               item.name === "About" ? (
                 <div

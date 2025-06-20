@@ -3,21 +3,32 @@ import measionImage from "../assets/measion.jpg"; // adjust the path
 import measionImage1 from "../assets/value.webp"; // adjust the path
 
 import { Lightbulb, MousePointerClick } from "lucide-react";
+import { motion } from "framer-motion";
 
 const About = () => {
   return (
     <>
       <section className="bg-white">
         {/* Top Heading */}
-        <div className="bg-[#033A78] text-white text-center py-6">
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="bg-[#033A78] text-white text-center py-6"
+        >
           <h2 className="text-4xl font-bold">About Us</h2>
           <p className="text-sm mt-1">| Home</p>
-        </div>
+        </motion.div>
 
         {/* Main Content */}
         <div className="grid md:grid-cols-2 gap-10 px-4 md:px-20 py-10 items-center">
           {/* Left Text */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
             <h3 className="text-2xl font-bold text-[#033A78] mb-4">
               Recruit World Job Consultancy
             </h3>
@@ -40,7 +51,13 @@ const About = () => {
             <h4 className="text-xl font-semibold mt-6 mb-2 text-[#033A78]">
               How we help businesses:
             </h4>
-            <ul className="list-disc pl-6 text-[#033A78] text-sm space-y-2">
+            <motion.ul 
+              className="list-disc pl-6 text-[#033A78] text-sm space-y-2"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
               <li>
                 We offer solutions gained through experience, employment laws,
                 and best practices.
@@ -68,21 +85,31 @@ const About = () => {
                 We reduce the time and effort it takes to recruit suitable
                 candidates.
               </li>
-            </ul>
-          </div>
+            </motion.ul>
+          </motion.div>
 
           {/* Right Image */}
-          <div className="rounded overflow-hidden shadow-lg">
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="rounded overflow-hidden shadow-lg"
+          >
             <img
               src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800"
               alt="About Recruit World"
               className="w-full object-cover h-full"
             />
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      <section
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
         className="relative bg-cover bg-center text-white py-24 px-6"
         style={{
           backgroundImage:
@@ -94,48 +121,79 @@ const About = () => {
 
         {/* Content */}
         <div className="relative max-w-5xl mx-auto text-center z-10">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-5xl font-bold mb-8"
+          >
             Why Partner with Recruit World?
-          </h2>
+          </motion.h2>
 
-          <p className="text-lg md:text-xl mb-6 leading-relaxed">
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-lg md:text-xl mb-6 leading-relaxed"
+          >
             At Recruit World Consultancy Services, we believe partnerships are
             built on trust, transparency, and consistent results. Our solutions
-            are not just about filling positions—they’re about building careers
+            are not just about filling positions—they're about building careers
             and empowering organizations with future-ready talent.
-          </p>
+          </motion.p>
 
-          <p className="text-lg md:text-xl mb-10 leading-relaxed">
-            By combining deep industry insights, personalized service, and agile
-            technology, we help our clients stay ahead of the curve. Whether
-            you're scaling a startup or expanding a global enterprise, we’re
-            here to align your workforce strategy with your business goals.
-          </p>
-
-          <button className="bg-white text-[#0A2472] font-semibold py-2 px-6 rounded-full shadow hover:bg-gray-100 transition duration-300">
+          <motion.button 
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-white text-[#0A2472] font-semibold py-2 px-6 rounded-full shadow hover:bg-gray-100 transition duration-300"
+          >
             CONTACT US
-          </button>
+          </motion.button>
         </div>
-      </section>
+      </motion.section>
 
-      <section className="bg-white py-20 px-6">
+      <motion.section 
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="bg-white py-20 px-6"
+      >
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10">
           {/* Left Image */}
-          <div className="w-full md:w-1/2 flex justify-center">
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="w-full md:w-1/2 flex justify-center"
+          >
             <img
               src={measionImage}
               alt="Team Illustration"
               className="max-w-md"
             />
-          </div>
+          </motion.div>
 
           {/* Right Content */}
           <div className="w-full md:w-1/2 space-y-12">
             {/* Vision */}
-            <div className="flex items-start gap-6">
-              <div className="bg-red-500 text-white p-4 rounded-full shadow">
+            <motion.div 
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="flex items-start gap-6"
+            >
+              <motion.div 
+                whileHover={{ scale: 1.1, rotate: 360 }}
+                transition={{ duration: 0.3 }}
+                className="bg-red-500 text-white p-4 rounded-full shadow"
+              >
                 <Lightbulb size={30} />
-              </div>
+              </motion.div>
               <div>
                 <h3 className="text-xl font-bold text-red-600 mb-2">
                   Our Vision
@@ -145,13 +203,23 @@ const About = () => {
                   Consulting partner.
                 </p>
               </div>
-            </div>
+            </motion.div>
 
             {/* Mission */}
-            <div className="flex items-start gap-6">
-              <div className="bg-red-500 text-white p-4 rounded-full shadow">
+            <motion.div 
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="flex items-start gap-6"
+            >
+              <motion.div 
+                whileHover={{ scale: 1.1, rotate: 360 }}
+                transition={{ duration: 0.3 }}
+                className="bg-red-500 text-white p-4 rounded-full shadow"
+              >
                 <MousePointerClick size={30} />
-              </div>
+              </motion.div>
               <div>
                 <h3 className="text-xl font-bold text-red-600 mb-2">Mission</h3>
                 <p className="text-blue-900 text-md leading-relaxed">
@@ -161,10 +229,10 @@ const About = () => {
                   more productive and profitable .
                 </p>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       <section className="bg-[#f0f9ff] py-12">
         <div className="text-center mb-10">
@@ -183,7 +251,7 @@ const About = () => {
               },
               {
                 title: "Client-Centric Approach",
-                text: "We understand client’s needs and always look forward to surpass them while matching recruitment aims with the company’s vision.",
+                text: "We understand client's needs and always look forward to surpass them while matching recruitment aims with the company's vision.",
               },
               {
                 title: "Continuous Innovation",

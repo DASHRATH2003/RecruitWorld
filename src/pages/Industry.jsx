@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 // 👉 Import your images
 import Retail from "../assets/image1.png";
@@ -61,34 +62,63 @@ const industries = [
 
 const Industries = () => {
   return (
-    <section className="bg-white py-16 px-4">
-    
-
-      <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold text-blue-900 mb-4">Industries We Serve</h2>
-        <p className="text-gray-600 max-w-3xl mx-auto">
-          At Recruit World Consultancy Services, we specialize in providing tailored recruitment solutions across diverse industries. Our deep understanding of each sector's unique challenges and requirements enables us to deliver exceptional talent that drives business success.
+    <section className="py-16 px-4">
+      <motion.div 
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="text-center mb-12"
+      >
+        <h2 className="text-3xl font-bold text-blue-900 mb-4">
+          Industries We Serve
+        </h2>
+        <p className="text-[#787f95] text-lg leading-relaxed mb-8 font-medium">
+          We provide specialized recruitment solutions across various industries,
+          ensuring the perfect match for your specific sector requirements.
         </p>
-      </div>
+      </motion.div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
         {industries.map((industry, index) => (
-          <div
+          <motion.div
             key={index}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.2 }}
+            viewport={{ once: true }}
+            whileHover={{ scale: 1.05 }}
             className="bg-gray-50 rounded-lg overflow-hidden shadow hover:shadow-lg transition flex flex-col"
           >
-            <div className="flex justify-center items-center p-4 bg-white h-48">
+            <motion.div 
+              className="flex justify-center items-center p-4 bg-white h-48"
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.3 }}
+            >
               <img
                 src={industry.img}
                 alt={industry.title}
                 className="max-w-full h-auto max-h-48 object-contain"
               />
-            </div>
+            </motion.div>
             <div className="p-4 text-center flex-grow">
-              <h3 className="text-red-600 font-bold mb-2">{industry.title}</h3>
-              <p className="text-gray-700">{industry.desc}</p>
+              <motion.h3 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.3, delay: 0.2 }}
+                className="text-red-600 font-bold mb-2"
+              >
+                {industry.title}
+              </motion.h3>
+              <motion.p 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.3, delay: 0.3 }}
+                className="text-sm text-gray-700 text-center mb-4 h-24 font-medium"
+              >
+                {industry.desc}
+              </motion.p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

@@ -1,69 +1,70 @@
-import React from 'react'
-
+import React from 'react';
+import { motion } from 'framer-motion';
 
 const Ourcompany = () => {
   return (
     <div>
-        <section className="bg-white py-16">
-  <div className="text-center mb-12">
-    <p className="text-sm text-accent font-semibold">Our Journey</p>
-    <h2 className="text-3xl font-bold text-primary">Know about our company</h2>
-  </div>
+      <section className="bg-white py-16">
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
+          <p className="text-sm text-accent font-semibold">Our Journey</p>
+          <h2 className="text-3xl font-bold text-primary">Know about our company</h2>
+        </motion.div>
 
-  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-5xl mx-auto px-4">
-   
-    <div className="border p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-      <p className="text-accent font-bold text-lg">2017</p>
-      <h3 className="text-primary font-semibold mt-2">Founded</h3>
-      <p className="mt-1 text-gray-700">We founded the company to fill the gap between employers and employees.</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-5xl mx-auto px-4">
+          {[
+            { year: "2017", title: "Founded", desc: "We founded the company to fill the gap between employers and employees." },
+            { year: "2018", title: "Expanded", desc: "We expanded our HR consultancy services company with 5 HR Experts." },
+            { year: "2019", title: "New Offices", desc: "We successfully opened five offices at the time. It was a very happy moment for us." },
+            { year: "2020", title: "Awards", desc: "This year we got so many awards from so many companies & channels." },
+            { year: "2021", title: "Recognitions", desc: "We are recognized by unicorn companies in India and outside of India." },
+            { year: "2022", title: "New Franchise", desc: "Being a successful recruitment agency, we started the franchise module." },
+            { year: "2023", title: "Growing", desc: "As a top recruitment agency in India, we continuously grow to build an organization in India." },
+            { year: "2024", title: "Growing", desc: "As a best HR Services Provider, we continuously help organizations to make their HR ecosystem strong." }
+          ].map((item, index) => (
+            <motion.div
+              key={item.year}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.05 }}
+              className="border p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow"
+            >
+              <motion.p 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.3, delay: 0.2 }}
+                className="text-accent font-bold text-lg"
+              >
+                {item.year}
+              </motion.p>
+              <motion.h3 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.3, delay: 0.3 }}
+                className="text-primary font-semibold mt-2"
+              >
+                {item.title}
+              </motion.h3>
+              <motion.p 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.3, delay: 0.4 }}
+                className="mt-1 text-gray-700"
+              >
+                {item.desc}
+              </motion.p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
     </div>
+  );
+};
 
-    <div className="border p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-      <p className="text-accent font-bold text-lg">2018</p>
-      <h3 className="text-primary font-semibold mt-2">Expanded</h3>
-      <p className="mt-1 text-gray-700">We expanded our HR consultancy services company with 5 HR Experts.</p>
-    </div>
-
-    <div className="border p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-      <p className="text-accent font-bold text-lg">2019</p>
-      <h3 className="text-primary font-semibold mt-2">New Offices</h3>
-      <p className="mt-1 text-gray-700">We successfully opened five offices at the time. It was a very happy moment for us.</p>
-    </div>
-
-    <div className="border p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-      <p className="text-accent font-bold text-lg">2020</p>
-      <h3 className="text-primary font-semibold mt-2">Awards</h3>
-      <p className="mt-1 text-gray-700">This year we got so many awards from so many companies & channels.</p>
-    </div>
-
-    <div className="border p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-      <p className="text-accent font-bold text-lg">2021</p>
-      <h3 className="text-primary font-semibold mt-2">Recognitions</h3>
-      <p className="mt-1 text-gray-700">We are recognized by unicorn companies in India and outside of India.</p>
-    </div>
-
-    <div className="border p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-      <p className="text-accent font-bold text-lg">2022</p>
-      <h3 className="text-primary font-semibold mt-2">New Franchise</h3>
-      <p className="mt-1 text-gray-700">Being a successful recruitment agency, we started the franchise module.</p>
-    </div>
-
-    <div className="border p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-      <p className="text-accent font-bold text-lg">2023</p>
-      <h3 className="text-primary font-semibold mt-2">Growing</h3>
-      <p className="mt-1 text-gray-700">As a top recruitment agency in India, we continuously grow to build an organization in India.</p>
-    </div>
-
-    <div className="border p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-      <p className="text-accent font-bold text-lg">2024</p>
-      <h3 className="text-primary font-semibold mt-2">Growing</h3>
-      <p className="mt-1 text-gray-700">As a best HR Services Provider, we continuously help organizations to make their HR ecosystem strong.</p>
-    </div>
-  </div>
-</section>
-
-    </div>
-  )
-}
-
-export default Ourcompany
+export default Ourcompany;

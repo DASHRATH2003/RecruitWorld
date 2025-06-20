@@ -1,5 +1,5 @@
 import React from "react";
-import sideImage from "../assets/intranship.jpeg";
+import sideImage from "../assets/intranship1.avif";
 
 // Adjust the path based on your folder structure
 
@@ -21,7 +21,7 @@ const Internship = () => {
           <h2 className="text-3xl font-bold text-blue-900 mb-6">
             Want to Build your career in Recruit World domain?
           </h2>
-          <p className="text-lg mb-4">
+          <p className="text-[#787f95] text-lg leading-relaxed mb-8 font-medium">
             Welcome to Recruit World Consultancy, your gateway to a dynamic and
             promising career! At Zeet, we understand the pivotal role Recruit World
             internships play in shaping the future of ambitious graduates and
@@ -29,7 +29,7 @@ const Internship = () => {
             candidates and industry has made us a trusted partner for both
             aspiring professionals and forward-thinking organizations.
           </p>
-          <p className="text-lg">
+          <p className="text-[#787f95] text-lg leading-relaxed mb-8 font-medium">
            Recruit World Consultancy is more than just an Recruit Worldinternship provider; we
             are your partner in success. Join us on this exciting journey to
             unlock doors of opportunity, gain valuable experience, and pave the
@@ -120,53 +120,7 @@ const Internship = () => {
         </section>
 
         {/* Application Process */}
-        <div className="mt-16">
-          <h2 className="text-3xl font-bold text-blue-900 text-center mb-8">
-            Application Process
-          </h2>
-          <div className="max-w-3xl mx-auto">
-            <div className="relative">
-              {/* Timeline Line */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gray-200"></div>
-
-              {/* Timeline Items */}
-              <div className="space-y-12">
-                {[
-                  {
-                    title: "Submit Application",
-                    desc: "Fill out the online application form and upload your resume",
-                  },
-                  {
-                    title: "Initial Screening",
-                    desc: "Our team reviews your application and assesses your qualifications",
-                  },
-                  {
-                    title: "Interview",
-                    desc: "Selected candidates are invited for a virtual or in-person interview",
-                  },
-                  {
-                    title: "Onboarding",
-                    desc: "Successful candidates receive offer letters and begin their internship journey",
-                  },
-                ].map((step, idx) => (
-                  <div key={idx} className="relative">
-                    <div className="flex items-center justify-center">
-                      <div className="bg-blue-900 w-8 h-8 rounded-full flex items-center justify-center text-white font-bold z-10">
-                        {idx + 1}
-                      </div>
-                    </div>
-                    <div className="mt-4 text-center">
-                      <h3 className="text-lg font-semibold text-blue-900">
-                        {step.title}
-                      </h3>
-                      <p className="text-gray-600 mt-2">{step.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
+        
       </div>
     </div>
   );
