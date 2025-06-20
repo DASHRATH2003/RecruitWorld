@@ -102,7 +102,7 @@ const Navbar = () => {
             onClick={() => handleNavigation("/")}
             className="flex-shrink-0 cursor-pointer"
           >
-            <img src={logo} alt="Logo" className="h-28 w-46 ml-[-20px]" />
+            <img src={logo} alt="Logo" className="h-32 w-48 ml-[-20px]" />
           </div>
 
           {/* Mobile menu button */}
