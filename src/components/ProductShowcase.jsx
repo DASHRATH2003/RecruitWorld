@@ -376,8 +376,13 @@ function ProductShowcase() {
               date: "JAN 18 2024",
             },
           ].map((blog, index) => (
-            <div
+            <motion.div
               key={index}
+              whileHover={{ scale: 1.05 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: "String" * 0.4 }}
               className="bg-gray-50 rounded-lg shadow hover:shadow-lg transition"
             >
               <img
@@ -393,7 +398,7 @@ function ProductShowcase() {
                   {blog.title}
                 </h3>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
